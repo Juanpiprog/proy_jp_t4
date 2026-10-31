@@ -21,6 +21,34 @@ CREATE POLICY "Permitir lectura a autenticados" ON public.usuarios
 CREATE POLICY "Permitir actualizar propio perfil" ON public.usuarios
     FOR UPDATE TO authenticated USING (auth.uid() = id);
 
+CREATE POLICY "Permitir insertar propio perfil" ON public.usuarios
+    FOR INSERT TO authenticated WITH CHECK (auth.uid() = id);
+
+-- Trigger automático para crear perfil en public.usuarios al registrarse en Auth
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS trigger AS $$
+BEGIN
+  INSERT INTO public.usuarios (id, nombre_completo, telefono, rol, activo)
+  VALUES (
+    new.id,
+    COALESCE(new.raw_user_meta_data->>'nombre_completo', split_part(new.email, '@', 1)),
+    new.raw_user_meta_data->>'telefono',
+    COALESCE(new.raw_user_meta_data->>'rol', 'preventista'),
+    true
+  )
+  ON CONFLICT (id) DO UPDATE
+  SET 
+    nombre_completo = EXCLUDED.nombre_completo,
+    rol = EXCLUDED.rol;
+  RETURN new;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
+CREATE TRIGGER on_auth_user_created
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
+
 -- 2. TABLA DE CLIENTES (Tiendas georreferenciadas con foto)
 CREATE TABLE IF NOT EXISTS public.clientes (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

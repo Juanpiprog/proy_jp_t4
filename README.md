@@ -17,7 +17,7 @@ proy_jp_t4/
 │   └── 04_MODO_OFFLINE_Y_MAPAS.md
 ├── database/             # 🗄️ Scripts SQL para Supabase
 │   └── init.sql
-├── backend/              # 🐍 API REST con FastAPI (Python)
+├── backend/              #  API REST con FastAPI (Python)
 │   ├── app/
 │   │   ├── core/         # Configuración y conexión a Supabase
 │   │   ├── models/       # Esquemas Pydantic

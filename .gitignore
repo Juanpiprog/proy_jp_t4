@@ -1,0 +1,57 @@
+
+# ==========================================
+# SECRETOS Y VARIABLES DE ENTORNO
+# ==========================================
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# ==========================================
+# PYTHON - FASTAPI
+# ==========================================
+__pycache__/
+*.py[cod]
+*.pyd
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# ==========================================
+# NODE.JS Y NEXT.JS
+# ==========================================
+node_modules/
+.next/
+out/
+.turbo/
+coverage/
+.vercel/
+
+# ==========================================
+# ARCHIVOS TEMPORALES Y LOGS
+# ==========================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ==========================================
+# EDITORES Y SISTEMA OPERATIVO
+# ==========================================
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# CERTIFICADOS Y CLAVES PRIVADAS
+# ==========================================
+*.pem
+*.key

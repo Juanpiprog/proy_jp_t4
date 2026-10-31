@@ -164,9 +164,9 @@ export default function AuthScreen({ onLoginSuccess }: AuthScreenProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-slate-50 to-blue-50 flex flex-col justify-center items-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-slate-50 to-blue-50 flex flex-col justify-center items-center p-4">
       <div className="w-full max-w-md bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
-        
+
         {/* Cabecera con Branding */}
         <div className="bg-gradient-to-r from-emerald-600 to-teal-600 p-6 text-white text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm mb-3 shadow-inner">
@@ -186,11 +186,10 @@ export default function AuthScreen({ onLoginSuccess }: AuthScreenProps) {
               setIsRegistering(false);
               setErrorMsg(null);
             }}
-            className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl font-bold text-xs transition-all ${
-              !isRegistering
+            className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl font-bold text-xs transition-all ${!isRegistering
                 ? 'bg-white text-emerald-700 shadow-sm'
                 : 'text-slate-500 hover:text-slate-900'
-            }`}
+              }`}
           >
             <LogIn className="w-4 h-4" />
             <span>Iniciar Sesión</span>
@@ -201,11 +200,10 @@ export default function AuthScreen({ onLoginSuccess }: AuthScreenProps) {
               setIsRegistering(true);
               setErrorMsg(null);
             }}
-            className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl font-bold text-xs transition-all ${
-              isRegistering
+            className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl font-bold text-xs transition-all ${isRegistering
                 ? 'bg-white text-emerald-700 shadow-sm'
                 : 'text-slate-500 hover:text-slate-900'
-            }`}
+              }`}
           >
             <UserPlus className="w-4 h-4" />
             <span>Registrarse</span>
@@ -267,11 +265,10 @@ export default function AuthScreen({ onLoginSuccess }: AuthScreenProps) {
                   <button
                     type="button"
                     onClick={() => setRol('preventista')}
-                    className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border text-xs font-bold transition-all ${
-                      rol === 'preventista'
+                    className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border text-xs font-bold transition-all ${rol === 'preventista'
                         ? 'border-emerald-600 bg-emerald-50 text-emerald-800 ring-2 ring-emerald-500/20'
                         : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-                    }`}
+                      }`}
                   >
                     <UserCheck className="w-4 h-4 text-emerald-600" />
                     <span>Preventista</span>
@@ -279,11 +276,10 @@ export default function AuthScreen({ onLoginSuccess }: AuthScreenProps) {
                   <button
                     type="button"
                     onClick={() => setRol('gerente')}
-                    className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border text-xs font-bold transition-all ${
-                      rol === 'gerente'
+                    className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border text-xs font-bold transition-all ${rol === 'gerente'
                         ? 'border-indigo-600 bg-indigo-50 text-indigo-800 ring-2 ring-indigo-500/20'
                         : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-                    }`}
+                      }`}
                   >
                     <Shield className="w-4 h-4 text-indigo-600" />
                     <span>Gerente</span>
