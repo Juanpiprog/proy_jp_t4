@@ -67,7 +67,7 @@ export default function Navbar({ currentRole, onRoleChange, preventistaId, curre
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-emerald-50 border-b border-emerald-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-2">
         {/* Logo y título */}
         <div className="flex items-center gap-2.5">
@@ -82,11 +82,10 @@ export default function Navbar({ currentRole, onRoleChange, preventistaId, curre
         <div className="flex items-center gap-2 sm:gap-3">
           {/* Badge de conexión */}
           <div
-            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold transition-colors ${
-              isOnline
+            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold transition-colors ${isOnline
                 ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                 : 'bg-amber-50 text-amber-800 border border-amber-200 animate-pulse'
-            }`}
+              }`}
           >
             {isOnline ? (
               <>
@@ -118,22 +117,20 @@ export default function Navbar({ currentRole, onRoleChange, preventistaId, curre
           <div className="flex items-center bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-xs font-semibold">
             <button
               onClick={() => onRoleChange('preventista')}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-md transition-all ${
-                currentRole === 'preventista'
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-md transition-all ${currentRole === 'preventista'
                   ? 'bg-white text-emerald-700 shadow-sm'
                   : 'text-slate-500 hover:text-slate-900'
-              }`}
+                }`}
             >
               <UserCheck className="w-3.5 h-3.5" />
               <span className="hidden md:inline">Preventista</span>
             </button>
             <button
               onClick={() => onRoleChange('gerente')}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-md transition-all ${
-                currentRole === 'gerente'
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-md transition-all ${currentRole === 'gerente'
                   ? 'bg-white text-indigo-700 shadow-sm'
                   : 'text-slate-500 hover:text-slate-900'
-              }`}
+                }`}
             >
               <Shield className="w-3.5 h-3.5" />
               <span className="hidden md:inline">Gerente</span>
